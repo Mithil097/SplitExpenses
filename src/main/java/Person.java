@@ -5,7 +5,7 @@ public class Person {
 
     public Person(String personName) {
         this.personName = personName;
-        this.myMoney=new Money(0.0);
+        this.myMoney = new Money(0.0);
     }
 
     void spent(Money moneySpent) {
@@ -18,6 +18,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return personName + " gets " + myMoney ;
+        return personName + " gets " + myMoney;
     }
 }

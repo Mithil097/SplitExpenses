@@ -4,10 +4,14 @@ public class Money {
     private double value;
 
     public Money(double value) throws MoneyCannotBeNegativeException {
-        if(value<0.0){
+        if (value < 0.0) {
             throw new MoneyCannotBeNegativeException();
         }
         this.value = value;
+    }
+
+    Money share(int numberOfPersons) {
+        return new Money(this.value / numberOfPersons);
     }
 
     void add(Money moneySpent) {

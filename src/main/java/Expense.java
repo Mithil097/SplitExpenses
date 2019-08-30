@@ -1,17 +1,22 @@
+import java.util.List;
+
 public class Expense {
     private final Money moneySpent;
     private final Person spentPerson;
-    private final Person owedPerson;
+    private final List<Person> persons;
 
-    public Expense(Person spentPerson, Money moneySpent,Person person) {
-        this.spentPerson=spentPerson;
-        this.moneySpent=moneySpent;
-        this.owedPerson=person;
+    public Expense(Person spentPerson, Money moneySpent, List<Person> persons) {
+        this.spentPerson = spentPerson;
+        this.moneySpent = moneySpent;
+        this.persons = persons;
     }
 
     public void split() {
+        Money splitAmount = moneySpent.share(persons.size());
+        for (Person eachPerson : persons) {
+            eachPerson.owes(splitAmount);
+        }
         spentPerson.spent(moneySpent);
-        owedPerson.owes(moneySpent);
     }
 
     public String Display() {
