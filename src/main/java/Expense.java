@@ -1,15 +1,17 @@
 public class Expense {
     private final Money moneySpent;
     private final Person spentPerson;
+    private final Person owedPerson;
 
-    public Expense(Person spentPerson, Money moneySpent) {
+    public Expense(Person spentPerson, Money moneySpent,Person person) {
         this.spentPerson=spentPerson;
         this.moneySpent=moneySpent;
+        this.owedPerson=person;
     }
 
     public void split() {
         spentPerson.spent(moneySpent);
-        spentPerson.owes(moneySpent);
+        owedPerson.owes(moneySpent);
     }
 
     public String Display() {

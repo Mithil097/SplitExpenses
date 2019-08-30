@@ -18,6 +18,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return personName + " has " + myMoney ;
+        return personName + " gets " + myMoney ;
     }
 }
