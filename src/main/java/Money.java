@@ -3,7 +3,10 @@ import java.util.Objects;
 public class Money {
     private double value;
 
-    public Money(double value) {
+    public Money(double value) throws MoneyCannotBeNegativeException {
+        if(value<0.0){
+            throw new MoneyCannotBeNegativeException();
+        }
         this.value = value;
     }
 
