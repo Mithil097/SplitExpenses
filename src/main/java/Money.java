@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-class Money {
+class Money implements MoneyHandler {
     private double value;
 
     public Money(double value) throws MoneyCannotBeNegativeException {
@@ -10,15 +10,18 @@ class Money {
         this.value = value;
     }
 
-    Money divide(int numberOfPersons) {
+    @Override
+    public Money divide(int numberOfPersons) {
         return new Money(this.value / numberOfPersons);
     }
 
-    void add(Money moneySpent) {
+    @Override
+    public void add(Money moneySpent) {
         this.value += moneySpent.value;
     }
 
-    void subtract(Money moneySpent) {
+    @Override
+    public void subtract(Money moneySpent) {
         this.value -= moneySpent.value;
     }
 
@@ -37,8 +40,8 @@ class Money {
 
     @Override
     public String toString() {
-        if(value>=0.0){
-            return " Gets "+value;
+        if (value >= 0.0) {
+            return " Gets " + value;
         }
         return " Gives " + (-value);
     }
