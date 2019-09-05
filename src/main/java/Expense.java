@@ -20,7 +20,13 @@ class Expense {
     }
 
     public String Display() {
-
-        return spentPerson.toString();
+        String allPersonsDetailsInvolvedInExpense = "";
+        if (!persons.contains(spentPerson)) {
+            allPersonsDetailsInvolvedInExpense += spentPerson.toString()+"\t";
+        }
+        for (Person person : persons) {
+            allPersonsDetailsInvolvedInExpense += person.toString()+"\t";
+        }
+        return allPersonsDetailsInvolvedInExpense;
     }
 }
