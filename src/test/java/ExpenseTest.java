@@ -14,7 +14,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson1Gets10WhenPerson1SpentOnPerson2() {
+    void expectPerson1Gets10Person2Gives10WhenPerson1SpentOnPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person2));
@@ -23,7 +23,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson1Get50ToPerson1WhenSpent100OnHimAndPerson2() {
+    void expectPerson1Get50Person2Gives50WhenPerson1Spent100OnHimAndPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
