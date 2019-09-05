@@ -8,12 +8,12 @@ public class Person {
         this.myMoney = new Money(0.0);
     }
 
-    void spent(Money moneySpent) {
-        myMoney.add(moneySpent);
+    void addMoneySpentByMe(Money moneySpentByMe) {
+        myMoney.add(moneySpentByMe);
     }
 
-    void owes(Money moneySpent) {
-        myMoney.subtract(moneySpent);
+    void owesMoneySpentOnMe(Money moneySpentToMe) {
+        myMoney.subtract(moneySpentToMe);
     }
 
     @Override

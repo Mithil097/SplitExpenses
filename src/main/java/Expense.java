@@ -12,14 +12,15 @@ public class Expense {
     }
 
     public void split() {
-        Money splitAmount = moneySpent.share(persons.size());
+        Money splitAmount = moneySpent.divide(persons.size());
         for (Person eachPerson : persons) {
-            eachPerson.owes(splitAmount);
+            eachPerson.owesMoneySpentOnMe(splitAmount);
         }
-        spentPerson.spent(moneySpent);
+        spentPerson.addMoneySpentByMe(moneySpent);
     }
 
     public String Display() {
+
         return spentPerson.toString();
     }
 }

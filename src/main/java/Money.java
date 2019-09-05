@@ -10,7 +10,7 @@ public class Money {
         this.value = value;
     }
 
-    Money share(int numberOfPersons) {
+    Money divide(int numberOfPersons) {
         return new Money(this.value / numberOfPersons);
     }
 
