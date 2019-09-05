@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Expense {
+class Expense {
     private final Money moneySpent;
     private final Person spentPerson;
     private final List<Person> persons;

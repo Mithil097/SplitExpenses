@@ -3,19 +3,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PersonTest {
+class PersonTest {
     @Test
-    void expect100WhenPersonSpent100() {
-        Person person = new Person("person");
-        person.addMoneySpentByMe(new Money(100.0));
-        assertEquals("person gets 100.0", person.toString());
+    void expectPerson1Gets100WhenPersonSpent100() {
+        Person person1 = new Person("person1");
+        person1.addMoneySpentByMe(new Money(100.0));
+        assertEquals("person1 Gets 100.0", person1.toString());
     }
 
     @Test
-    void expectNegative100WhenPersonOwes100() {
-        Person person = new Person("person");
-        person.owesMoneySpentOnMe(new Money(100.0));
-        assertEquals("person gets -100.0", person.toString());
+    void expectPerson1Gives100WhenPersonOwes100() {
+        Person person1 = new Person("person1");
+        person1.owesMoneySpentOnMe(new Money(100.0));
+        assertEquals("person1 Gives 100.0", person1.toString());
     }
 
     @Test

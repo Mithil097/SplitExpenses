@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class MoneyTest {
+class MoneyTest {
     @Test
     void expect10WhenNewMoneyAddToMoney1() {
         Money money1 = new Money(0.0);

@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Money {
+class Money {
     private double value;
 
     public Money(double value) throws MoneyCannotBeNegativeException {
@@ -37,6 +37,9 @@ public class Money {
 
     @Override
     public String toString() {
-        return "" + value;
+        if(value>=0.0){
+            return " Gets "+value;
+        }
+        return " Gives " + (-value);
     }
 }
