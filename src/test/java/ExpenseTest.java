@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ExpenseTest {
     @Test
@@ -29,5 +30,11 @@ class ExpenseTest {
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
         expense.split();
         assertEquals("person1 Gets 50.0\tperson2 Gives 50.0\t", expense.Display());
+    }
+    @Test
+    void expectExceptionWhenPersonSpentNegative100() {
+        Person person1 = new Person("person1");
+        Person person2 = new Person("person2");
+        assertThrows(MoneyCannotBeNegativeException.class, () -> new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2)),"Money cannot be negative ");
     }
 }

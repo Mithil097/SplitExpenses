@@ -21,12 +21,12 @@ class PersonTest {
     @Test
     void expectExceptionWhenPersonSpentNegative100() {
         Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.addMoneySpentByMe(new Money(-100.0)));
+        assertThrows(MoneyCannotBeNegativeException.class, () -> person.addMoneySpentByMe(new Money(-100.0)),"Money cannot be negative ");
     }
 
     @Test
     void expectExceptionWhenPersonOwesNegative100() {
         Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.owesMoneySpentOnMe(new Money(-100.0)));
+        assertThrows(MoneyCannotBeNegativeException.class, () -> person.owesMoneySpentOnMe(new Money(-100.0)),"Money cannot be negative ");
     }
 }

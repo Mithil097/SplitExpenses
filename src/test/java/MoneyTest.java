@@ -20,7 +20,7 @@ class MoneyTest {
 
     @Test
     void expectExceptionMoneyHasNegativeValue() {
-        assertThrows(MoneyCannotBeNegativeException.class, () -> new Money(-10.0));
+        assertThrows(MoneyCannotBeNegativeException.class, () -> new Money(-10.0), "Money cannot be negative ");
     }
 
     @Test
