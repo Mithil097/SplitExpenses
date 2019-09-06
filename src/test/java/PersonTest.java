@@ -1,9 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PersonTest {
+class PersonTest {
 
     @Test
     void expect0WhenCallGetEffectiveMoneyForNewPerson() {
@@ -27,14 +26,22 @@ public class PersonTest {
 
     @Test
     void expectExceptionWhenPersonSpentNegative100() {
-        Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.addMoneySpent(new Money(-100.0)), "Money cannot be negative ");
+        try {
+            Person person = new Person("person");
+            person.addMoneySpent(new Money(-100.0));
+        } catch (MoneyCannotBeNegativeException exception) {
+            assertEquals("Money cannot be negative", exception.getMessage());
+        }
     }
 
     @Test
     void expectExceptionWhenPersonOwesNegative100() {
-        Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.owedMoney(new Money(-100.0)), "Money cannot be negative ");
+        try {
+            Person person = new Person("person");
+            person.owedMoney(new Money(-100.0));
+        } catch (MoneyCannotBeNegativeException exception) {
+            assertEquals("Money cannot be negative", exception.getMessage());
+        }
     }
 }
 

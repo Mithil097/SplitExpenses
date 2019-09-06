@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MoneyTest {
 
@@ -27,7 +26,11 @@ class MoneyTest {
 
     @Test
     void expectMoneyCannotBeNegativeExceptionWhenMoneyHasNegativeValue() {
-        assertThrows(MoneyCannotBeNegativeException.class, () -> new Money(-10.0), "Money cannot be negative ");
+        try {
+            Money money = new Money(-10.0);
+        } catch (MoneyCannotBeNegativeException exception) {
+            assertEquals("Money cannot be negative", exception.getMessage());
+        }
     }
 
     @Test

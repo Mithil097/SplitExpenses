@@ -1,5 +1,6 @@
-class MoneyCannotBeNegativeException extends RuntimeException {
-    MoneyCannotBeNegativeException() {
-        super("Money cannot be negative ");
+public class MoneyCannotBeNegativeException extends RuntimeException {
+    public MoneyCannotBeNegativeException(String exceptionMessage) {
+        super(exceptionMessage);
     }
 }
+

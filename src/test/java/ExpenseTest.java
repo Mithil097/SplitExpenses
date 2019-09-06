@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ExpenseTest {
     @Test
@@ -15,7 +14,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson1HasMoney10AndPerson2HasNegative10WhenPerson1SpentOnPerson2() {
+    void expectPerson1HasMoney10AndPerson2HasNegative10WhenPerson1SpentOnPerson2() throws Exception, MoneyCannotBeNegativeException {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person2));
@@ -24,7 +23,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() {
+    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() throws Exception, MoneyCannotBeNegativeException {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
@@ -34,9 +33,13 @@ class ExpenseTest {
 
     @Test
     void expectExceptionWhenPersonSpentNegative100() {
-        Person person1 = new Person("person1");
-        Person person2 = new Person("person2");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2)), "Money cannot be negative ");
+        try {
+            Person person1 = new Person("person1");
+            Person person2 = new Person("person2");
+            Expense expense = new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2));
+        } catch (MoneyCannotBeNegativeException exception) {
+            assertEquals("Money cannot be negative", exception.getMessage());
+        }
     }
 }
 

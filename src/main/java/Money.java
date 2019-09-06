@@ -5,7 +5,7 @@ public class Money implements MoneyHandler {
 
     public Money(double value) {
         if (value < 0.0) {
-            throw new MoneyCannotBeNegativeException();
+            throw new MoneyCannotBeNegativeException("Money cannot be negative");
         }
         this.value = value;
     }
