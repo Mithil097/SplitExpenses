@@ -42,13 +42,5 @@ public class Money implements MoneyHandler {
         return Objects.hash(value);
     }
 
-    @Override
-    public String toString() {
-        if (value >= 0.0) {
-            return " Gets " + value;
-        }
-        return " Gives " + (-value);
-    }
-
 }
 

@@ -22,10 +22,10 @@ public class Expense {
     public String display() {
         String allPersonsDetailsInvolvedInExpense = "";
         if (!personsInvolved.contains(spentPerson)) {
-            allPersonsDetailsInvolvedInExpense += spentPerson.personName+" "+spentPerson.getEffectiveMoney() + "\t";
+            allPersonsDetailsInvolvedInExpense += spentPerson.personName + " " + spentPerson.getEffectiveMoney() + "\t";
         }
         for (Person person : personsInvolved) {
-            allPersonsDetailsInvolvedInExpense += person.personName+" "+person.getEffectiveMoney() + "\t";
+            allPersonsDetailsInvolvedInExpense += person.personName + " " + person.getEffectiveMoney() + "\t";
         }
         return allPersonsDetailsInvolvedInExpense;
     }

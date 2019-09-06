@@ -19,10 +19,5 @@ public class Person {
     double getEffectiveMoney() {
         return this.effectiveMoney.getMoney();
     }
-
-    @Override
-    public String toString() {
-        return personName + effectiveMoney;
-    }
 }
 
