@@ -1,7 +1,4 @@
-package controller;
-
-import model.Money;
-import model.Person;
+package model;
 
 import java.util.List;
 
@@ -24,15 +21,5 @@ public class Expense {
         spentPerson.addMoneySpent(moneySpent);
     }
 
-    public String display() {
-        String allPersonsDetailsInvolvedInExpense = "";
-        if (!personsInvolved.contains(spentPerson)) {
-            allPersonsDetailsInvolvedInExpense += spentPerson.personName + " " + spentPerson.getEffectiveMoney() + "\t";
-        }
-        for (Person person : personsInvolved) {
-            allPersonsDetailsInvolvedInExpense += person.personName + " " + person.getEffectiveMoney() + "\t";
-        }
-        return allPersonsDetailsInvolvedInExpense;
-    }
 }
 

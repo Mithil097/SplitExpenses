@@ -1,4 +1,4 @@
-import controller.Expense;
+import model.Expense;
 import exceptions.MoneyCannotBeNegativeException;
 import model.Money;
 import model.Person;
@@ -14,25 +14,27 @@ class ExpenseTest {
         Person person = new Person("person");
         Expense expense = new Expense(person, new Money(10.0), Arrays.asList(person));
         expense.split();
-        assertEquals("person 0.0\t", expense.display());
+        assertEquals(0.0, person.getEffectiveMoney());
     }
 
     @Test
-    void expectPerson1HasMoney10AndPerson2HasNegative10WhenPerson1SpentOnPerson2() throws Exception, MoneyCannotBeNegativeException {
+    void expectPerson2HasNegative10WhenPerson1SpentOnPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person2));
         expense.split();
-        assertEquals("person1 10.0\tperson2 -10.0\t", expense.display());
+        assertEquals( -10.0,person2.getEffectiveMoney());
     }
 
     @Test
-    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() throws Exception, MoneyCannotBeNegativeException {
+    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
         expense.split();
-        assertEquals("person1 50.0\tperson2 -50.0\t", expense.display());
+        assertEquals("person1 50.0 person2 -50.0", person1.personName+" "+person1.getEffectiveMoney()+" "+person2.personName+" "+person2.getEffectiveMoney());
+
+
     }
 
     @Test
@@ -42,7 +44,7 @@ class ExpenseTest {
             Person person2 = new Person("person2");
             Expense expense = new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2));
         } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("model.Money cannot be negative", exception.getMessage());
+            assertEquals("Money cannot be negative", exception.getMessage());
         }
     }
 }

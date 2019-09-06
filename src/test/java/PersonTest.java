@@ -33,7 +33,7 @@ class PersonTest {
             Person person = new Person("person");
             person.addMoneySpent(new Money(-100.0));
         } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("model.Money cannot be negative", exception.getMessage());
+            assertEquals("Money cannot be negative", exception.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ class PersonTest {
             Person person = new Person("person");
             person.owedMoney(new Money(-100.0));
         } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("model.Money cannot be negative", exception.getMessage());
+            assertEquals("Money cannot be negative", exception.getMessage());
         }
     }
 }

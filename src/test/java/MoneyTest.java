@@ -31,7 +31,7 @@ class MoneyTest {
         try {
             Money money = new Money(-10.0);
         } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("model.Money cannot be negative", exception.getMessage());
+            assertEquals("Money cannot be negative", exception.getMessage());
         }
     }
 
