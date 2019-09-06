@@ -4,29 +4,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MoneyTest {
+
     @Test
-    void expect10WhenNewMoneyAddToMoney1() {
-        Money money1 = new Money(0.0);
-        money1.add(new Money(10.0));
-        assertEquals(new Money(10.0), money1);
+    void expect10WhenMoneyCallsGetMoney() {
+        Money money = new Money(10.0);
+        assertEquals(10.0, money.getMoney());
     }
 
     @Test
-    void expect10WhenNewMoneySubtractToMoney1() {
-        Money money1 = new Money(100.0);
-        money1.subtract(new Money(90.0));
-        assertEquals(new Money(10.0), money1);
+    void expectMoney10WhenNewMoney10AddToMoney() {
+        Money money = new Money(0.0);
+        money.add(new Money(10.0));
+        assertEquals(new Money(10.0), money);
     }
 
     @Test
-    void expectExceptionMoneyHasNegativeValue() {
+    void expectMoney10WhenNewMoney90SubtractToMoney() {
+        Money money = new Money(100.0);
+        money.subtract(new Money(90.0));
+        assertEquals(new Money(10.0), money);
+    }
+
+    @Test
+    void expectMoneyCannotBeNegativeExceptionWhenMoneyHasNegativeValue() {
         assertThrows(MoneyCannotBeNegativeException.class, () -> new Money(-10.0), "Money cannot be negative ");
     }
 
     @Test
-    void expect10WhenMoney1DivideWithListOfPersons() {
-        Money money1 = new Money(100.0);
-        assertEquals(new Money(10.0), money1.divide(10));
+    void expectMoney10WhenMoneyDivide10Persons() {
+        Money money = new Money(100.0);
+        assertEquals(new Money(10.0), money.divide(10));
     }
-
 }
+

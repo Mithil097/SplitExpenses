@@ -1,13 +1,17 @@
 import java.util.Objects;
 
-class Money implements MoneyHandler {
+public class Money implements MoneyHandler {
     private double value;
 
-    public Money(double value) throws MoneyCannotBeNegativeException {
+    public Money(double value) {
         if (value < 0.0) {
             throw new MoneyCannotBeNegativeException();
         }
         this.value = value;
+    }
+
+    double getMoney() {
+        return this.value;
     }
 
     @Override
@@ -16,13 +20,13 @@ class Money implements MoneyHandler {
     }
 
     @Override
-    public void add(Money moneySpent) {
-        this.value += moneySpent.value;
+    public void add(Money money) {
+        this.value += money.value;
     }
 
     @Override
-    public void subtract(Money moneySpent) {
-        this.value -= moneySpent.value;
+    public void subtract(Money money) {
+        this.value -= money.value;
     }
 
     @Override
@@ -45,4 +49,6 @@ class Money implements MoneyHandler {
         }
         return " Gives " + (-value);
     }
+
 }
+

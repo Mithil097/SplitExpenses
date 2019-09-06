@@ -1,7 +1,8 @@
 public interface MoneyHandler {
     Money divide(int numberOfPersons);
 
-    void add(Money moneySpent);
+    void add(Money money);
 
-    void subtract(Money moneySpent);
+    void subtract(Money money);
 }
+

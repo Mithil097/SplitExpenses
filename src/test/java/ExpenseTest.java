@@ -7,34 +7,36 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ExpenseTest {
     @Test
-    void expectPerson1Gets0WhenPerson1SpentOnHimself() {
-        Person person1 = new Person("person1");
-        Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person1));
+    void expectPersonHas0MoneyWhenPersonSpentOnHimself() {
+        Person person = new Person("person");
+        Expense expense = new Expense(person, new Money(10.0), Arrays.asList(person));
         expense.split();
-        assertEquals("person1 Gets 0.0\t", expense.Display());
+        assertEquals("person 0.0\t", expense.display());
     }
 
     @Test
-    void expectPerson1Gets10Person2Gives10WhenPerson1SpentOnPerson2() {
+    void expectPerson1HasMoney10AndPerson2HasNegative10WhenPerson1SpentOnPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person2));
         expense.split();
-        assertEquals("person1 Gets 10.0\tperson2 Gives 10.0\t", expense.Display());
+        assertEquals("person1 10.0\tperson2 -10.0\t", expense.display());
     }
 
     @Test
-    void expectPerson1Get50Person2Gives50WhenPerson1Spent100OnHimAndPerson2() {
+    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
         expense.split();
-        assertEquals("person1 Gets 50.0\tperson2 Gives 50.0\t", expense.Display());
+        assertEquals("person1 50.0\tperson2 -50.0\t", expense.display());
     }
+
     @Test
     void expectExceptionWhenPersonSpentNegative100() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2)),"Money cannot be negative ");
+        assertThrows(MoneyCannotBeNegativeException.class, () -> new Expense(person1, new Money(-100.0), Arrays.asList(person1, person2)), "Money cannot be negative ");
     }
 }
+

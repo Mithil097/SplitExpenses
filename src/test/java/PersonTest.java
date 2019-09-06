@@ -3,30 +3,38 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class PersonTest {
+public class PersonTest {
+
     @Test
-    void expectPerson1Gets100WhenPersonSpent100() {
-        Person person1 = new Person("person1");
-        person1.addMoneySpentByMe(new Money(100.0));
-        assertEquals("person1 Gets 100.0", person1.toString());
+    void expect0WhenCallGetEffectiveMoneyForNewPerson() {
+        Person person = new Person("person");
+        assertEquals(0.0, person.getEffectiveMoney());
     }
 
     @Test
-    void expectPerson1Gives100WhenPersonOwes100() {
-        Person person1 = new Person("person1");
-        person1.owesMoneySpentOnMe(new Money(100.0));
-        assertEquals("person1 Gives 100.0", person1.toString());
+    void expect100WhenPersonSpent100() {
+        Person person = new Person("person");
+        person.addMoneySpent(new Money(100.0));
+        assertEquals(100.0, person.getEffectiveMoney());
+    }
+
+    @Test
+    void expectNegative100WhenPersonOwes100() {
+        Person person = new Person("person");
+        person.owedMoney(new Money(100.0));
+        assertEquals(-100.0, person.getEffectiveMoney());
     }
 
     @Test
     void expectExceptionWhenPersonSpentNegative100() {
         Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.addMoneySpentByMe(new Money(-100.0)),"Money cannot be negative ");
+        assertThrows(MoneyCannotBeNegativeException.class, () -> person.addMoneySpent(new Money(-100.0)), "Money cannot be negative ");
     }
 
     @Test
     void expectExceptionWhenPersonOwesNegative100() {
         Person person = new Person("person");
-        assertThrows(MoneyCannotBeNegativeException.class, () -> person.owesMoneySpentOnMe(new Money(-100.0)),"Money cannot be negative ");
+        assertThrows(MoneyCannotBeNegativeException.class, () -> person.owedMoney(new Money(-100.0)), "Money cannot be negative ");
     }
 }
+

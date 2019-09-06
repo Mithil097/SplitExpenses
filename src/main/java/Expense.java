@@ -1,32 +1,33 @@
 import java.util.List;
 
-class Expense {
+public class Expense {
     private final Money moneySpent;
     private final Person spentPerson;
-    private final List<Person> persons;
+    private final List<Person> personsInvolved;
 
-    public Expense(Person spentPerson, Money moneySpent, List<Person> persons) {
+    public Expense(Person spentPerson, Money moneySpent, List<Person> personsInvolved) {
         this.spentPerson = spentPerson;
         this.moneySpent = moneySpent;
-        this.persons = persons;
+        this.personsInvolved = personsInvolved;
     }
 
     public void split() {
-        Money splitAmount = moneySpent.divide(persons.size());
-        for (Person eachPerson : persons) {
-            eachPerson.owesMoneySpentOnMe(splitAmount);
+        Money splitAmount = moneySpent.divide(personsInvolved.size());
+        for (Person eachPerson : personsInvolved) {
+            eachPerson.owedMoney(splitAmount);
         }
-        spentPerson.addMoneySpentByMe(moneySpent);
+        spentPerson.addMoneySpent(moneySpent);
     }
 
-    public String Display() {
+    public String display() {
         String allPersonsDetailsInvolvedInExpense = "";
-        if (!persons.contains(spentPerson)) {
-            allPersonsDetailsInvolvedInExpense += spentPerson.toString()+"\t";
+        if (!personsInvolved.contains(spentPerson)) {
+            allPersonsDetailsInvolvedInExpense += spentPerson.personName+" "+spentPerson.getEffectiveMoney() + "\t";
         }
-        for (Person person : persons) {
-            allPersonsDetailsInvolvedInExpense += person.toString()+"\t";
+        for (Person person : personsInvolved) {
+            allPersonsDetailsInvolvedInExpense += person.personName+" "+person.getEffectiveMoney() + "\t";
         }
         return allPersonsDetailsInvolvedInExpense;
     }
 }
+

@@ -1,23 +1,28 @@
 public class Person {
 
-    private final String personName;
-    private final Money myMoney;
+    final String personName;
+    private final Money effectiveMoney;
 
     public Person(String personName) {
         this.personName = personName;
-        this.myMoney = new Money(0.0);
+        this.effectiveMoney = new Money(0.0);
     }
 
-    void addMoneySpentByMe(Money moneySpentByMe) {
-        myMoney.add(moneySpentByMe);
+    void addMoneySpent(Money moneySpent) {
+        effectiveMoney.add(moneySpent);
     }
 
-    void owesMoneySpentOnMe(Money moneySpentToMe) {
-        myMoney.subtract(moneySpentToMe);
+    void owedMoney(Money owedMoney) {
+        effectiveMoney.subtract(owedMoney);
+    }
+
+    double getEffectiveMoney() {
+        return this.effectiveMoney.getMoney();
     }
 
     @Override
     public String toString() {
-        return personName + myMoney;
+        return personName + effectiveMoney;
     }
 }
+
