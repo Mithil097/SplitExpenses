@@ -1,3 +1,8 @@
+package controller;
+
+import model.Money;
+import model.Person;
+
 import java.util.List;
 
 public class Expense {

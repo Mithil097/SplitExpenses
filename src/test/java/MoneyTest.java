@@ -1,3 +1,5 @@
+import exceptions.MoneyCannotBeNegativeException;
+import model.Money;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +31,7 @@ class MoneyTest {
         try {
             Money money = new Money(-10.0);
         } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("Money cannot be negative", exception.getMessage());
+            assertEquals("model.Money cannot be negative", exception.getMessage());
         }
     }
 

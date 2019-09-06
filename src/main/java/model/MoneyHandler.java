@@ -1,3 +1,7 @@
+package model;
+
+import model.Money;
+
 public interface MoneyHandler {
     Money divide(int numberOfPersons);
 

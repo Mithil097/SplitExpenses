@@ -1,3 +1,7 @@
+package model;
+
+import exceptions.MoneyCannotBeNegativeException;
+
 import java.util.Objects;
 
 public class Money implements MoneyHandler {
@@ -5,12 +9,12 @@ public class Money implements MoneyHandler {
 
     public Money(double value) {
         if (value < 0.0) {
-            throw new MoneyCannotBeNegativeException("Money cannot be negative");
+            throw new MoneyCannotBeNegativeException("model.Money cannot be negative");
         }
         this.value = value;
     }
 
-    double getMoney() {
+    public double getMoney() {
         return this.value;
     }
 

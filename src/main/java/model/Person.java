@@ -1,6 +1,8 @@
+package model;
+
 public class Person {
 
-    final String personName;
+    public final String personName;
     private final Money effectiveMoney;
 
     public Person(String personName) {
@@ -8,15 +10,15 @@ public class Person {
         this.effectiveMoney = new Money(0.0);
     }
 
-    void addMoneySpent(Money moneySpent) {
+    public void addMoneySpent(Money moneySpent) {
         effectiveMoney.add(moneySpent);
     }
 
-    void owedMoney(Money owedMoney) {
+    public void owedMoney(Money owedMoney) {
         effectiveMoney.subtract(owedMoney);
     }
 
-    double getEffectiveMoney() {
+    public double getEffectiveMoney() {
         return this.effectiveMoney.getMoney();
     }
 }
