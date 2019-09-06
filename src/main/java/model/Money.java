@@ -1,6 +1,7 @@
 package model;
 
 import exceptions.MoneyCannotBeNegativeException;
+import interfaces.MoneyHandler;
 
 import java.util.Objects;
 
