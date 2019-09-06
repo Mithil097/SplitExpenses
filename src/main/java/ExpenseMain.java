@@ -13,7 +13,7 @@ public class ExpenseMain {
             Money moneySpent = new Money(90.0);
             Expense expense = new Expense(person1, moneySpent, Arrays.asList(person1, person2, person3));
             expense.split();
-            System.out.println(person1.personName + " " + person1.getEffectiveMoney() + " " + person2.personName +" "+person2.getEffectiveMoney() + " " + person3.personName + " " + person3.getEffectiveMoney());
+            System.out.println(person1.personName + " " + person1.getEffectiveMoney() + " " + person2.personName + " " + person2.getEffectiveMoney() + " " + person3.personName + " " + person3.getEffectiveMoney());
         }
     }
 }
