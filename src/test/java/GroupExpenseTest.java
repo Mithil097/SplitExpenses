@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GroupExpenseTest {
     @Test
     void expectAllPersonsEffectiveMoneyWhoInvolvedInGroupExpense() {
-        Person person1 = new Person("person1");
-        Person person2 = new Person("person2");
-        Person person3 = new Person("person3");
-        Person person4 = new Person("person4");
-        Expense expense1 = new Expense(person1, new Money(90.0), Arrays.asList(person1, person2, person3));
-        Expense expense2 = new Expense(person2, new Money(120.0), Arrays.asList(person1, person2, person3, person4));
-        Expense expense3 = new Expense(person3, new Money(60.0), Arrays.asList(person1, person2, person3));
+        Person personA = new Person("personA");
+        Person personB = new Person("personB");
+        Person personC = new Person("personC");
+        Person personD = new Person("personD");
+        Expense expense1 = new Expense(personA, new Money(90.0), Arrays.asList(personA, personB, personC));
+        Expense expense2 = new Expense(personB, new Money(120.0), Arrays.asList(personA, personB, personC, personD));
+        Expense expense3 = new Expense(personC, new Money(60.0), Arrays.asList(personA, personB, personC));
         GroupExpense trip = new GroupExpense();
         trip.splitExpense(Arrays.asList(expense1, expense2, expense3));
-        assertEquals("person1 10.0 person2 40.0 person3 -20.0 person4 -30.0", person1.personName + " " + person1.getEffectiveMoney() + " " + person2.personName + " " + person2.getEffectiveMoney() + " " + person3.personName + " " + person3.getEffectiveMoney() + " " + person4.personName + " " + person4.getEffectiveMoney());
+        assertEquals("personA 10.0 personB 40.0 personC -20.0 personD -30.0", personA.personName + " " + personA.getEffectiveMoney() + " " + personB.personName + " " + personB.getEffectiveMoney() + " " + personC.personName + " " + personC.getEffectiveMoney() + " " + personD.personName + " " + personD.getEffectiveMoney());
     }
 }

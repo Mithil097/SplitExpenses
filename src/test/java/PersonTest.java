@@ -2,6 +2,7 @@ import exceptions.MoneyCannotBeNegativeException;
 import model.Money;
 import model.Person;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,7 +23,7 @@ class PersonTest {
     }
 
     @Test
-    void expectSubtractMethodIsCalledWhenPersonOwes100() {
+    void expectMoney100OwedWhenPersonOwes100() {
         Person person = new Person("person");
         person.owedMoney(new Money(100.0));
         assertEquals(-100.0, person.getEffectiveMoney());
