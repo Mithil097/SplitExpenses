@@ -21,7 +21,8 @@ class ExpenseTest {
     void expectPerson2HasNegative10WhenPerson1SpentOnPerson2() {
         Person person1 = new Person("person1");
         Person person2 = new Person("person2");
-        Expense expense = new Expense(person1, new Money(10.0), Arrays.asList(person2));
+        Money money = new Money(10.0);
+        Expense expense = new Expense(person1, money, Arrays.asList(person2));
         expense.split();
         assertEquals(-10.0, person2.getEffectiveMoney());
     }
@@ -33,8 +34,6 @@ class ExpenseTest {
         Expense expense = new Expense(person1, new Money(100.0), Arrays.asList(person1, person2));
         expense.split();
         assertEquals("person1 50.0 person2 -50.0", person1.personName + " " + person1.getEffectiveMoney() + " " + person2.personName + " " + person2.getEffectiveMoney());
-
-
     }
 
     @Test

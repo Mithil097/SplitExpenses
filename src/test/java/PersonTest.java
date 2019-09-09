@@ -14,14 +14,15 @@ class PersonTest {
     }
 
     @Test
-    void expect100WhenPersonSpent100() {
+    void expectMoney100AddedWhenPersonSpent100() {
         Person person = new Person("person");
-        person.addMoneySpent(new Money(100.0));
+        Money money = new Money(100.0);
+        person.addMoneySpent(money);
         assertEquals(100.0, person.getEffectiveMoney());
     }
 
     @Test
-    void expectNegative100WhenPersonOwes100() {
+    void expectSubtractMethodIsCalledWhenPersonOwes100() {
         Person person = new Person("person");
         person.owedMoney(new Money(100.0));
         assertEquals(-100.0, person.getEffectiveMoney());
