@@ -16,7 +16,7 @@ public class Expense {
     public void split() {
         Money splitAmount = moneySpent.divide(personsInvolved.size());
         for (Person eachPerson : personsInvolved) {
-            eachPerson.owedMoney(splitAmount);
+            eachPerson.subtractOwedMoney(splitAmount);
         }
         spentPerson.addMoneySpent(moneySpent);
     }

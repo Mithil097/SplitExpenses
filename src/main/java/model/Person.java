@@ -14,7 +14,7 @@ public class Person {
         effectiveMoney.add(moneySpent);
     }
 
-    public void owedMoney(Money owedMoney) {
+    public void subtractOwedMoney(Money owedMoney) {
         effectiveMoney.subtract(owedMoney);
     }
 
