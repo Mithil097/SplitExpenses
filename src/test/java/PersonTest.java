@@ -47,5 +47,24 @@ class PersonTest {
             assertEquals("Money cannot be negative", exception.getMessage());
         }
     }
+
+    @Test
+    void expect0WhenPersonCallsGetEffectiveMoney() {
+        Person person = new Person("person1");
+        assertEquals(0.0, person.getEffectiveMoney());
+    }
+
+    @Test
+    void expectTrueWhenPersonCalledIsOwed() {
+        Person person = new Person("person1");
+        assertEquals(false, person.isOwed());
+    }
+
+    @Test
+    void expectMoney10OwedPersonWhenPersonSubtractOwedMoney() {
+        Person person = new Person("person");
+        person.subtractOwedMoney(new Money(10.0));
+        assertEquals(10.0, person.owedMoney());
+    }
 }
 

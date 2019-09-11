@@ -18,6 +18,14 @@ public class Person {
         effectiveMoney.subtract(owedMoney);
     }
 
+    public boolean isOwed() {
+        return effectiveMoney.getMoney() < 0.0;
+    }
+
+    public double owedMoney() {
+        return -(effectiveMoney.getMoney());
+    }
+
     public double getEffectiveMoney() {
         return this.effectiveMoney.getMoney();
     }

@@ -8,8 +8,8 @@ public class Display {
     public void display(List<Person> personsInvolved) {
         for (Person person : personsInvolved) {
             String personDetails = "";
-            if (person.getEffectiveMoney() < 0.0) {
-                personDetails += person.personName + " has to give " + (-person.getEffectiveMoney());
+            if (person.isOwed()) {
+                personDetails += person.personName + " has to give " + person.owedMoney();
             } else {
                 personDetails += person.personName + " will get " + (person.getEffectiveMoney());
             }
