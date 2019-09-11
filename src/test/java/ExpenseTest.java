@@ -30,7 +30,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson2CalledSubtractOwedMoneyWhenPerson1SpentOnPerson2() {
+    void expectPersonBCalledSubtractOwedMoneyWhenPersonASpentOnPersonB() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Money money = mock(Money.class);
@@ -40,7 +40,7 @@ class ExpenseTest {
     }
 
     @Test
-    void expectPerson1AndPerson2CalledSubtractOwedMoneyInPersonWhenPerson1Spent100OnHimAndPerson2() {
+    void expectPersonAAndPersonBCalledSubtractOwedMoneyInPersonWhenPerson1SpentMoneyOnHimAndPersonB() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Money money = mock(Money.class);
