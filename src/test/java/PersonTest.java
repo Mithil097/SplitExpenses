@@ -2,8 +2,11 @@ import exceptions.MoneyCannotBeNegativeException;
 import model.Money;
 import model.Person;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.util.reflection.FieldSetter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 class PersonTest {
 
@@ -14,18 +17,23 @@ class PersonTest {
     }
 
     @Test
-    void expectMoney100AddedWhenPersonSpent100() {
+    void expectAddMethodCalledInMoneyAddedWhenPersonCalledAddMoneySpent() throws NoSuchFieldException {
         Person person = new Person("person");
-        Money money = new Money(100.0);
+        Money mockedMoney = mock(Money.class);
+        Money money = mock(Money.class);
+        FieldSetter.setField(person, person.getClass().getDeclaredField("effectiveMoney"), mockedMoney);
         person.addMoneySpent(money);
-        assertEquals(100.0, person.getEffectiveMoney());
+        verify(mockedMoney).add(money);
     }
 
     @Test
-    void expectMoney100OwedWhenPersonOwes100() {
+    void expectSubtractCalledInMoneyWhenPersonCalledSubtractOwedMoney() throws NoSuchFieldException {
         Person person = new Person("person");
-        person.subtractOwedMoney(new Money(100.0));
-        assertEquals(-100.0, person.getEffectiveMoney());
+        Money mockedMoney = mock(Money.class);
+        Money money = mock(Money.class);
+        FieldSetter.setField(person, person.getClass().getDeclaredField("effectiveMoney"), mockedMoney);
+        person.subtractOwedMoney(money);
+        verify(mockedMoney).subtract(money);
     }
 
     @Test
@@ -49,22 +57,22 @@ class PersonTest {
     }
 
     @Test
-    void expect0WhenPersonCallsGetEffectiveMoney() {
+    void expect0WhenPersonCallsGetEffectiveMoney(){
         Person person = new Person("person1");
-        assertEquals(0.0, person.getEffectiveMoney());
+        assertEquals(0.0,person.getEffectiveMoney());
     }
 
     @Test
     void expectTrueWhenPersonCalledIsOwed() {
         Person person = new Person("person1");
-        assertEquals(false, person.isOwed());
+        assertEquals(false,person.isOwed());
     }
 
     @Test
-    void expectMoney10OwedPersonWhenPersonSubtractOwedMoney() {
+    void expectMoney10OwedPersonWhenPersonSubtractOwedMoney(){
         Person person = new Person("person");
         person.subtractOwedMoney(new Money(10.0));
-        assertEquals(10.0, person.owedMoney());
+        assertEquals(10.0,person.owedMoney());
     }
 }
 

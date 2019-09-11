@@ -1,4 +1,3 @@
-import exceptions.MoneyCannotBeNegativeException;
 import model.Expense;
 import model.Money;
 import model.Person;
@@ -6,45 +5,49 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 class ExpenseTest {
     @Test
-    void expectPersonHas0MoneyWhenPersonSpentOnHimself() {
-        Person person = new Person("person");
-        Expense expense = new Expense(person, new Money(10.0), Arrays.asList(person));
+    void expectMoneyDividedWhenSplitCalledInExpense() {
+        Person person = mock(Person.class);
+        Money money = mock(Money.class);
+        Expense expense = new Expense(person, money, Arrays.asList(person));
         expense.split();
-        assertEquals(0.0, person.getEffectiveMoney());
+        verify(money).divide(anyInt());
     }
 
     @Test
-    void expectPerson2HasNegative10WhenPerson1SpentOnPerson2() {
-        Person personA = new Person("personA");
-        Person personB = new Person("personB");
-        Money money = new Money(10.0);
+    void expectAddMoneySpentCalledWhenSplitCalledInExpense() {
+        Person person = mock(Person.class);
+        Money money = mock(Money.class);
+        Expense expense = new Expense(person, money, Arrays.asList(person));
+        expense.split();
+        verify(person).addMoneySpent(money);
+    }
+
+    @Test
+    void expectPerson2CalledSubtractOwedMoneyWhenPerson1SpentOnPerson2() {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Money money = mock(Money.class);
         Expense expense = new Expense(personA, money, Arrays.asList(personB));
         expense.split();
-        assertEquals(-10.0, personB.getEffectiveMoney());
+        verify(personB).subtractOwedMoney(any());
     }
 
     @Test
-    void expectPerson1HasMoney50Person2MoneyNegative50WhenPerson1Spent100OnHimAndPerson2() {
-        Person personA = new Person("personA");
-        Person personB = new Person("personB");
-        Expense expense = new Expense(personA, new Money(100.0), Arrays.asList(personA, personB));
+    void expectPerson1AndPerson2CalledSubtractOwedMoneyInPersonWhenPerson1Spent100OnHimAndPerson2() {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Money money = mock(Money.class);
+        Expense expense = new Expense(personA, money, Arrays.asList(personA, personB));
         expense.split();
-        assertEquals("personA 50.0 personB -50.0", personA.personName + " " + personA.getEffectiveMoney() + " " + personB.personName + " " + personB.getEffectiveMoney());
-    }
-
-    @Test
-    void expectExceptionWhenPersonSpentNegative100() {
-        try {
-            Person personA = new Person("personA");
-            Person personB = new Person("personB");
-            Expense expense = new Expense(personA, new Money(-100.0), Arrays.asList(personA, personB));
-        } catch (MoneyCannotBeNegativeException exception) {
-            assertEquals("Money cannot be negative", exception.getMessage());
-        }
+        verify(personA).subtractOwedMoney(any());
+        verify(personB).subtractOwedMoney(any());
     }
 }
 
