@@ -63,7 +63,7 @@ class PersonTest {
     }
 
     @Test
-    void expectTrueWhenPersonCalledIsOwed() {
+    void expectFalseWhenPersonCalledIsOwed() {
         Person person = new Person("person1");
         assertEquals(false,person.isOwed());
     }
