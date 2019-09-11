@@ -7,9 +7,14 @@ import view.Display;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GroupExpenseMain {
+    private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     public static void main(String[] args) {
+        logger.log(Level.INFO, "My first log");
         Person personA = new Person("personA");
         Person personB = new Person("personB");
         Person personC = new Person("personC");
