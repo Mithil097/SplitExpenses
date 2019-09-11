@@ -4,9 +4,11 @@ import exceptions.MoneyCannotBeNegativeException;
 import interfaces.MoneyHandler;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Money implements MoneyHandler {
     private double value;
+    Logger logger= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Money(double value) {
         if (value < 0.0) {
@@ -21,6 +23,7 @@ public class Money implements MoneyHandler {
 
     @Override
     public Money divide(int numberOfPersons) {
+        logger.info("money spent is divided here");
         return new Money(this.value / numberOfPersons);
     }
 

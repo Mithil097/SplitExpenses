@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class Expense {
-    private final static Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private final Money moneySpent;
     private final Person spentPerson;
     private final List<Person> personsInvolved;
@@ -16,9 +16,10 @@ public class Expense {
     }
 
     public void split() {
-        log.info("Split is called in expense");
+        logger.info("Split is called in expense");
         Money splitAmount = moneySpent.divide(personsInvolved.size());
         for (Person eachPerson : personsInvolved) {
+            logger.info("Subtract owed Money from the person");
             eachPerson.subtractOwedMoney(splitAmount);
         }
         spentPerson.addMoneySpent(moneySpent);

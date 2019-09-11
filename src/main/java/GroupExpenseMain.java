@@ -4,17 +4,25 @@ import model.Money;
 import model.Person;
 import view.Display;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class GroupExpenseMain {
-    private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-    public static void main(String[] args) {
-        logger.log(Level.INFO, "My first log");
+    private static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private static void setUpLogger() throws IOException {
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.ALL);
+        Handler handler = new FileHandler("log.xml");
+        handler.setLevel(Level.INFO);
+        handler.setFormatter(new XMLFormatter());
+        logger.addHandler(handler);
+        logger.info("start the logger");
+    }
+    public static void main(String[] args) throws IOException {
+        setUpLogger();
         Person personA = new Person("personA");
         Person personB = new Person("personB");
         Person personC = new Person("personC");

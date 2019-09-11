@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 class PersonTest {
 
     @Test
-    void expect0WhenCallGetEffectiveMoneyForNewPerson() {
+    void expect0WhenCallGetEffectiveMoneyForPerson() {
         Person person = new Person("person");
         assertEquals(0.0, person.getEffectiveMoney());
     }
@@ -63,7 +63,7 @@ class PersonTest {
     }
 
     @Test
-    void expectTrueWhenPersonCalledIsOwed() {
+    void expectFalseWhenPersonCalledIsOwed() {
         Person person = new Person("person1");
         assertEquals(false,person.isOwed());
     }
