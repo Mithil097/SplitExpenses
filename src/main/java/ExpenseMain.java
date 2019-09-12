@@ -25,6 +25,5 @@ public class ExpenseMain {
         personsInvolved.add(person3);
         Expense expense = new Expense(person1, moneySpent, Arrays.asList(person1, person2, person3));
         expense.split();
-        display.display(personsInvolved);
     }
 }

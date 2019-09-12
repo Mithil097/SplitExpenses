@@ -36,6 +36,5 @@ public class GroupExpenseMain {
         Expense expense3 = new Expense(personC, new Money(180.0), personsInvolved);
         GroupExpense trip = new GroupExpense();
         trip.splitExpense(Arrays.asList(expense1, expense2, expense3));
-        displayAllPersonDetails.display(personsInvolved);
     }
 }
