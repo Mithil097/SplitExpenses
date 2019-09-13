@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class GroupExpenseTest {
+class GroupExpenseTest {
     @Test
     void expectSplitIsCalledForEachExpenseWhenSplitExpenseIsCalledInGroupExpense() {
         Expense expense1 = mock(Expense.class);

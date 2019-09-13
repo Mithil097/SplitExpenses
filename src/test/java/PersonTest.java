@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.internal.util.reflection.FieldSetter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -65,7 +66,7 @@ class PersonTest {
     @Test
     void expectFalseWhenPersonCalledIsOwed() {
         Person person = new Person("person1");
-        assertEquals(false, person.isOwed());
+        assertFalse(person.isOwed());
     }
 
     @Test

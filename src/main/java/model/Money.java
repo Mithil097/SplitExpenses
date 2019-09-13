@@ -11,6 +11,8 @@ public class Money implements MoneyHandler {
     Logger logger= Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public Money(double value) {
+
+        logger.severe("money cannot be negative");
         if (value < 0.0) {
             throw new MoneyCannotBeNegativeException("Money cannot be negative");
         }

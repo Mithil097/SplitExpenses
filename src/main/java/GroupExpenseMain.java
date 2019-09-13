@@ -5,27 +5,16 @@ import model.Money;
 import model.Person;
 import view.Display;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.*;
+import java.util.logging.Logger;
 
 public class GroupExpenseMain {
     private static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private static void setUpLogger() throws IOException {
-        LogManager.getLogManager().reset();
-        logger.setLevel(Level.ALL);
-        Handler handler = new FileHandler("log.xml");
-        handler.setLevel(Level.INFO);
-        handler.setFormatter(new XMLFormatter());
-        logger.addHandler(handler);
+    public static void main(String[] args) {
         logger.info("start the logger");
-    }
-
-    public static void main(String[] args) throws IOException {
-        setUpLogger();
         Person personA = new Person("personA");
         Person personB = new Person("personB");
         Person personC = new Person("personC");
@@ -41,8 +30,8 @@ public class GroupExpenseMain {
         Expense expense3 = new Expense(personC, new Money(120.0), personsInvolved);
         Expense expense4 = new Expense(personD, new Money(180.0), personsInvolved);
         GroupExpense trip = new GroupExpense();
-        trip.splitExpense(Arrays.asList(expense1, expense2, expense3,expense4));
-        ShareExpense share=new ShareExpense(personsInvolved,display);
+        trip.splitExpense(Arrays.asList(expense1, expense2, expense3, expense4));
+        ShareExpense share = new ShareExpense(personsInvolved, display);
         share.share();
     }
 }

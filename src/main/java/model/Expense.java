@@ -22,6 +22,7 @@ public class Expense {
             logger.info("Subtract owed Money from the person");
             eachPerson.subtractOwedMoney(splitAmount);
         }
+        logger.info("Add Money Spent to the spent person");
         spentPerson.addMoneySpent(moneySpent);
     }
 
