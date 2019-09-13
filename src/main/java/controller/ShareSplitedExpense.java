@@ -1,16 +1,19 @@
 package controller;
 
-import model.Money;
 import model.Person;
+import view.Display;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShareSplitedExpense {
+    private final Display display;
     private List<Person> personsInvolved;
 
-    public ShareSplitedExpense(List<Person> personsInvolved) {
+
+    public ShareSplitedExpense(List<Person> personsInvolved, Display display) {
         this.personsInvolved=personsInvolved;
+        this.display= display;
     }
 
     public void shareAmongThemselves(){
@@ -18,6 +21,7 @@ public class ShareSplitedExpense {
         for (Person owesPerson : owesPersons) {
             for (Person person:personsInvolved){
                 if (person.isOwed()) {
+                    display.displayOwedPersonGiveCompleteMoney(owesPerson,person);
                 }
             }
         }

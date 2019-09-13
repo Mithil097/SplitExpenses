@@ -1,24 +1,22 @@
 import controller.ShareSplitedExpense;
-import model.Money;
 import model.Person;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.util.reflection.FieldSetter;
 import view.Display;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class ShareSpliedExpenseTest {
+public class ShareSplitedExpenseTest {
     @Test
     void expectEachPersonCheckedWhetherHeHadOwedSomething(){
         Person personA=mock(Person.class);
         Person personB=mock(Person.class);
         Person personC=mock(Person.class);
-        ShareSplitedExpense share=new ShareSplitedExpense(Arrays.asList(personA,personB,personC));
+        Display display=mock(Display.class);
+        ShareSplitedExpense share=new ShareSplitedExpense(Arrays.asList(personA,personB,personC),display);
         share.getOwesPersons();
         verify(personA,times(1)).isOwed();
         verify(personB,times(1)).isOwed();
@@ -29,24 +27,28 @@ public class ShareSpliedExpenseTest {
     void expectListOfPersonsOwesSizeIs1WhenPersonAOwesFromPersonB() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
+        Display display=mock(Display.class);
         when(personA.isOwed()).thenReturn(true);
         when(personB.isOwed()).thenReturn(false);
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB));
+        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB), display);
         List<Person> owesPersons = share.getOwesPersons();
         assertEquals(1, owesPersons.size());
     }
     @Test
-  void expectIsOwedCalled2TimesWhenPersonAAndPersonCOwesFromPersonB() {
+    void expectIsOwedCalled2TimesWhenPersonAAndPersonCOwesFromPersonB() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
         when(personA.isOwed()).thenReturn(true);
         when(personB.isOwed()).thenReturn(false);
         when(personC.isOwed()).thenReturn(true);
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB,personC));
+        Display display=new Display();
+        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB,personC), display);
         share.shareAmongThemselves();
         verify(personA,times(2)).isOwed();
         verify(personB,times(2)).isOwed();
         verify(personC,times(2)).isOwed();
     }
+
+
 }
