@@ -1,3 +1,4 @@
+import controller.ShareExpense;
 import model.Expense;
 import model.Money;
 import model.Person;
@@ -25,5 +26,7 @@ public class ExpenseMain {
         personsInvolved.add(person3);
         Expense expense = new Expense(person1, moneySpent, Arrays.asList(person1, person2, person3));
         expense.split();
+        ShareExpense share=new ShareExpense(personsInvolved,display);
+        share.share();
     }
 }

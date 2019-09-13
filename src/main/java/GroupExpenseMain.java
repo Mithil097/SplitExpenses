@@ -1,3 +1,4 @@
+import controller.ShareExpense;
 import model.Expense;
 import model.GroupExpense;
 import model.Money;
@@ -28,15 +29,20 @@ public class GroupExpenseMain {
         Person personA = new Person("personA");
         Person personB = new Person("personB");
         Person personC = new Person("personC");
-        Display displayAllPersonDetails = new Display();
+        Person personD = new Person("personD");
+        Display display = new Display();
         List<Person> personsInvolved = new ArrayList<>();
         personsInvolved.add(personA);
         personsInvolved.add(personB);
         personsInvolved.add(personC);
-        Expense expense1 = new Expense(personA, new Money(90.0), personsInvolved);
-        Expense expense2 = new Expense(personB, new Money(120.0), personsInvolved);
-        Expense expense3 = new Expense(personC, new Money(180.0), personsInvolved);
+        personsInvolved.add(personD);
+        Expense expense1 = new Expense(personA, new Money(240.0), personsInvolved);
+        Expense expense2 = new Expense(personB, new Money(160.0), personsInvolved);
+        Expense expense3 = new Expense(personC, new Money(120.0), personsInvolved);
+        Expense expense4 = new Expense(personD, new Money(180.0), personsInvolved);
         GroupExpense trip = new GroupExpense();
-        trip.splitExpense(Arrays.asList(expense1, expense2, expense3));
+        trip.splitExpense(Arrays.asList(expense1, expense2, expense3,expense4));
+        ShareExpense share=new ShareExpense(personsInvolved,display);
+        share.share();
     }
 }

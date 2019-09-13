@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2019-09-11T11:28:13.003120Z</date>
-  <millis>1568201293003</millis>
-  <nanos>120000</nanos>
+  <date>2019-09-13T07:05:58.733705Z</date>
+  <millis>1568358358733</millis>
+  <nanos>705000</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>start the logger</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.022105Z</date>
-  <millis>1568201293022</millis>
-  <nanos>105000</nanos>
+  <date>2019-09-13T07:05:58.755156Z</date>
+  <millis>1568358358755</millis>
+  <nanos>156000</nanos>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Iterate through each expense</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.022443Z</date>
-  <millis>1568201293022</millis>
-  <nanos>443000</nanos>
+  <date>2019-09-13T07:05:58.755465Z</date>
+  <millis>1568358358755</millis>
+  <nanos>465000</nanos>
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>Split is called in expense</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.022808Z</date>
-  <millis>1568201293022</millis>
-  <nanos>808000</nanos>
+  <date>2019-09-13T07:05:58.755715Z</date>
+  <millis>1568358358755</millis>
+  <nanos>715000</nanos>
   <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -50,9 +50,9 @@
   <message>money spent is divided here</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.023064Z</date>
-  <millis>1568201293023</millis>
-  <nanos>64000</nanos>
+  <date>2019-09-13T07:05:58.755972Z</date>
+  <millis>1568358358755</millis>
+  <nanos>972000</nanos>
   <sequence>4</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -62,9 +62,9 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.023300Z</date>
-  <millis>1568201293023</millis>
-  <nanos>300000</nanos>
+  <date>2019-09-13T07:05:58.756218Z</date>
+  <millis>1568358358756</millis>
+  <nanos>218000</nanos>
   <sequence>5</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -74,9 +74,9 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.023538Z</date>
-  <millis>1568201293023</millis>
-  <nanos>538000</nanos>
+  <date>2019-09-13T07:05:58.756454Z</date>
+  <millis>1568358358756</millis>
+  <nanos>454000</nanos>
   <sequence>6</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -86,46 +86,10 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.023752Z</date>
-  <millis>1568201293023</millis>
-  <nanos>752000</nanos>
+  <date>2019-09-13T07:05:58.756676Z</date>
+  <millis>1568358358756</millis>
+  <nanos>676000</nanos>
   <sequence>7</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>model.GroupExpense</class>
-  <method>splitExpense</method>
-  <thread>1</thread>
-  <message>Iterate through each expense</message>
-</record>
-<record>
-  <date>2019-09-11T11:28:13.023950Z</date>
-  <millis>1568201293023</millis>
-  <nanos>950000</nanos>
-  <sequence>8</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>model.Expense</class>
-  <method>split</method>
-  <thread>1</thread>
-  <message>Split is called in expense</message>
-</record>
-<record>
-  <date>2019-09-11T11:28:13.024141Z</date>
-  <millis>1568201293024</millis>
-  <nanos>141000</nanos>
-  <sequence>9</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>model.Money</class>
-  <method>divide</method>
-  <thread>1</thread>
-  <message>money spent is divided here</message>
-</record>
-<record>
-  <date>2019-09-11T11:28:13.024395Z</date>
-  <millis>1568201293024</millis>
-  <nanos>395000</nanos>
-  <sequence>10</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>model.Expense</class>
@@ -134,9 +98,45 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.024593Z</date>
-  <millis>1568201293024</millis>
-  <nanos>593000</nanos>
+  <date>2019-09-13T07:05:58.756889Z</date>
+  <millis>1568358358756</millis>
+  <nanos>889000</nanos>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.GroupExpense</class>
+  <method>splitExpense</method>
+  <thread>1</thread>
+  <message>Iterate through each expense</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.757106Z</date>
+  <millis>1568358358757</millis>
+  <nanos>106000</nanos>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Split is called in expense</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.757327Z</date>
+  <millis>1568358358757</millis>
+  <nanos>327000</nanos>
+  <sequence>10</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Money</class>
+  <method>divide</method>
+  <thread>1</thread>
+  <message>money spent is divided here</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.757536Z</date>
+  <millis>1568358358757</millis>
+  <nanos>536000</nanos>
   <sequence>11</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -146,9 +146,9 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.024786Z</date>
-  <millis>1568201293024</millis>
-  <nanos>786000</nanos>
+  <date>2019-09-13T07:05:58.757738Z</date>
+  <millis>1568358358757</millis>
+  <nanos>738000</nanos>
   <sequence>12</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -158,10 +158,34 @@
   <message>Subtract owed Money from the person</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.025003Z</date>
-  <millis>1568201293025</millis>
-  <nanos>3000</nanos>
+  <date>2019-09-13T07:05:58.757939Z</date>
+  <millis>1568358358757</millis>
+  <nanos>939000</nanos>
   <sequence>13</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.758114Z</date>
+  <millis>1568358358758</millis>
+  <nanos>114000</nanos>
+  <sequence>14</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.758299Z</date>
+  <millis>1568358358758</millis>
+  <nanos>299000</nanos>
+  <sequence>15</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>model.GroupExpense</class>
@@ -170,10 +194,10 @@
   <message>Iterate through each expense</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.025184Z</date>
-  <millis>1568201293025</millis>
-  <nanos>184000</nanos>
-  <sequence>14</sequence>
+  <date>2019-09-13T07:05:58.758481Z</date>
+  <millis>1568358358758</millis>
+  <nanos>481000</nanos>
+  <sequence>16</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>model.Expense</class>
@@ -182,10 +206,10 @@
   <message>Split is called in expense</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.025365Z</date>
-  <millis>1568201293025</millis>
-  <nanos>365000</nanos>
-  <sequence>15</sequence>
+  <date>2019-09-13T07:05:58.758662Z</date>
+  <millis>1568358358758</millis>
+  <nanos>662000</nanos>
+  <sequence>17</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>model.Money</class>
@@ -194,34 +218,130 @@
   <message>money spent is divided here</message>
 </record>
 <record>
-  <date>2019-09-11T11:28:13.025552Z</date>
-  <millis>1568201293025</millis>
-  <nanos>552000</nanos>
-  <sequence>16</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>model.Expense</class>
-  <method>split</method>
-  <thread>1</thread>
-  <message>Subtract owed Money from the person</message>
-</record>
-<record>
-  <date>2019-09-11T11:28:13.025726Z</date>
-  <millis>1568201293025</millis>
-  <nanos>726000</nanos>
-  <sequence>17</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>model.Expense</class>
-  <method>split</method>
-  <thread>1</thread>
-  <message>Subtract owed Money from the person</message>
-</record>
-<record>
-  <date>2019-09-11T11:28:13.025902Z</date>
-  <millis>1568201293025</millis>
-  <nanos>902000</nanos>
+  <date>2019-09-13T07:05:58.758852Z</date>
+  <millis>1568358358758</millis>
+  <nanos>852000</nanos>
   <sequence>18</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759025Z</date>
+  <millis>1568358358759</millis>
+  <nanos>25000</nanos>
+  <sequence>19</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759202Z</date>
+  <millis>1568358358759</millis>
+  <nanos>202000</nanos>
+  <sequence>20</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759374Z</date>
+  <millis>1568358358759</millis>
+  <nanos>374000</nanos>
+  <sequence>21</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759578Z</date>
+  <millis>1568358358759</millis>
+  <nanos>578000</nanos>
+  <sequence>22</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.GroupExpense</class>
+  <method>splitExpense</method>
+  <thread>1</thread>
+  <message>Iterate through each expense</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759743Z</date>
+  <millis>1568358358759</millis>
+  <nanos>743000</nanos>
+  <sequence>23</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Split is called in expense</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.759922Z</date>
+  <millis>1568358358759</millis>
+  <nanos>922000</nanos>
+  <sequence>24</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Money</class>
+  <method>divide</method>
+  <thread>1</thread>
+  <message>money spent is divided here</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.760118Z</date>
+  <millis>1568358358760</millis>
+  <nanos>118000</nanos>
+  <sequence>25</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.760326Z</date>
+  <millis>1568358358760</millis>
+  <nanos>326000</nanos>
+  <sequence>26</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.760500Z</date>
+  <millis>1568358358760</millis>
+  <nanos>500000</nanos>
+  <sequence>27</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>model.Expense</class>
+  <method>split</method>
+  <thread>1</thread>
+  <message>Subtract owed Money from the person</message>
+</record>
+<record>
+  <date>2019-09-13T07:05:58.760659Z</date>
+  <millis>1568358358760</millis>
+  <nanos>659000</nanos>
+  <sequence>28</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>model.Expense</class>

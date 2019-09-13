@@ -1,4 +1,4 @@
-import controller.ShareSplitedExpense;
+import controller.ShareExpense;
 import model.Person;
 import org.junit.jupiter.api.Test;
 import view.Display;
@@ -10,14 +10,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class ShareSplitedExpenseTest {
+public class ShareExpenseTest {
     @Test
     void expectEachPersonCheckedWhetherHeHadOwedSomething() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
         Display display = mock(Display.class);
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB, personC), display);
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
         share.getOwesPersons();
         verify(personA, times(1)).isOwed();
         verify(personB, times(1)).isOwed();
@@ -32,7 +32,7 @@ public class ShareSplitedExpenseTest {
         Display display = mock(Display.class);
         when(personA.isOwed()).thenReturn(true);
         when(personB.isOwed()).thenReturn(false);
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB), display);
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB), display);
         List<Person> owesPersons = share.getOwesPersons();
         assertEquals(1, owesPersons.size());
     }
@@ -46,8 +46,8 @@ public class ShareSplitedExpenseTest {
         when(personB.isOwed()).thenReturn(false);
         when(personC.isOwed()).thenReturn(true);
         Display display = new Display();
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB, personC), display);
-        share.shareAmongThemselves();
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
+        share.share();
         verify(personA, times(2)).isOwed();
         verify(personB, times(2)).isOwed();
         verify(personC, times(2)).isOwed();
@@ -61,9 +61,35 @@ public class ShareSplitedExpenseTest {
         when(personB.getEffectiveMoney()).thenReturn(20.0);
         when(personA.getOwedMoney()).thenReturn(15.0);
         Display display = new Display();
-        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB, personC), display);
-        share.shareAmongThemselves();
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
+        share.share();
         assertEquals(true, personB.getEffectiveMoney() > personA.getOwedMoney());
+    }
+
+    @Test
+    void expectPersonBEffectiveMoneyEqualToPersonAOwedMoney() throws IOException {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Person personC = mock(Person.class);
+        when(personB.getEffectiveMoney()).thenReturn(30.0);
+        when(personA.getOwedMoney()).thenReturn(30.0);
+        Display display = new Display();
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
+        share.share();
+        assertEquals(true, personB.getEffectiveMoney() == personA.getOwedMoney());
+    }
+
+    @Test
+    void expectPersonBEffectiveMoneyLessThanPersonAOwedMoney() throws IOException {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Person personC = mock(Person.class);
+        when(personB.getEffectiveMoney()).thenReturn(30.0);
+        when(personA.getOwedMoney()).thenReturn(35.0);
+        Display display = new Display();
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
+        share.share();
+        assertEquals(true, personB.getEffectiveMoney() < personA.getOwedMoney());
     }
 
 }

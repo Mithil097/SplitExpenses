@@ -7,17 +7,16 @@ import view.Display;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShareSplitedExpense {
+public class ShareExpense {
     private final Display display;
     private List<Person> personsInvolved;
 
-
-    public ShareSplitedExpense(List<Person> personsInvolved, Display display) {
+    public ShareExpense(List<Person> personsInvolved, Display display) {
         this.personsInvolved = personsInvolved;
         this.display = display;
     }
 
-    public void shareAmongThemselves() {
+    public void share() {
         List<Person> owesPersons = getOwesPersons();
         for (Person owesPerson : owesPersons) {
             for (Person person : personsInvolved) {
@@ -26,6 +25,11 @@ public class ShareSplitedExpense {
                         display.displayOwesPersonGetCompleteMoney(person, owesPerson);
                         owesPerson.subtractOwedMoney(new Money(person.getOwedMoney()));
                         person.addMoneySpent(new Money(person.getOwedMoney()));
+                    }
+                    if (owesPerson.getEffectiveMoney()<person.getOwedMoney() && owesPerson.getEffectiveMoney()>0.0){
+                        display.displayOwedPersonGiveCompleteMoney(person,owesPerson);
+                        person.addMoneySpent(new Money(owesPerson.getEffectiveMoney()));
+                        owesPerson.subtractOwedMoney(new Money(owesPerson.getEffectiveMoney()));
                     }
                 }
             }
