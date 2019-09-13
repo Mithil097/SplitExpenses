@@ -3,11 +3,11 @@ package view;
 import model.Person;
 
 public class Display {
-    public void displayOwesPersonGetCompleteMoney(Person owedPerson, Person owesPerson) {
+    public void printOwesPersonShare(Person owedPerson, Person owesPerson) {
         System.out.println(owedPerson.personName + " --> " + owesPerson.personName + " " + owedPerson.getOwedMoney());
     }
 
-    public void displayOwedPersonGiveCompleteMoney(Person owedPerson, Person owesPerson) {
+    public void printOwedPersonShare(Person owedPerson, Person owesPerson) {
         System.out.println(owedPerson.personName + " --> " + owesPerson.personName + " " +owesPerson.getEffectiveMoney());
     }
 }

@@ -22,12 +22,12 @@ public class ShareExpense {
             for (Person person : personsInvolved) {
                 if (person.isOwed()) {
                     if (owesPerson.getEffectiveMoney() >= person.getOwedMoney()) {
-                        display.displayOwesPersonGetCompleteMoney(person, owesPerson);
+                        display.printOwesPersonShare(person, owesPerson);
                         owesPerson.subtractOwedMoney(new Money(person.getOwedMoney()));
                         person.addMoneySpent(new Money(person.getOwedMoney()));
                     }
                     if (owesPerson.getEffectiveMoney()<person.getOwedMoney() && owesPerson.getEffectiveMoney()>0.0){
-                        display.displayOwedPersonGiveCompleteMoney(person,owesPerson);
+                        display.printOwedPersonShare(person,owesPerson);
                         person.addMoneySpent(new Money(owesPerson.getEffectiveMoney()));
                         owesPerson.subtractOwedMoney(new Money(owesPerson.getEffectiveMoney()));
                     }

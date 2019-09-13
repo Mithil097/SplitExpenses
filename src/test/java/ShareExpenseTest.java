@@ -1,4 +1,5 @@
 import controller.ShareExpense;
+import model.Money;
 import model.Person;
 import org.junit.jupiter.api.Test;
 import view.Display;
@@ -6,13 +7,12 @@ import view.Display;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class ShareExpenseTest {
     @Test
-    void expectEachPersonCheckedWhetherHeHadOwedSomething() {
+    void expectIsOwedCalledForAllPersonsInvolvedInExpense() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
@@ -30,6 +30,9 @@ class ShareExpenseTest {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Display display = mock(Display.class);
+        Money money=mock(Money.class);
+        personB.addMoneySpent(money);
+        personA.subtractOwedMoney(money);
         when(personA.isOwed()).thenReturn(true);
         when(personB.isOwed()).thenReturn(false);
         ShareExpense share = new ShareExpense(Arrays.asList(personA, personB), display);
@@ -38,7 +41,7 @@ class ShareExpenseTest {
     }
 
     @Test
-    void expectIsOwedCalled2TimesWhenPersonAAndPersonCOwesFromPersonB() {
+    void expectIsOwedCalled2TimesWhenPersonAAndPersonCOwedAndPersonBIsNotOwed() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
@@ -54,7 +57,7 @@ class ShareExpenseTest {
     }
 
     @Test
-    void expectPersonBEffectiveMoneyGreaterThanPersonAOwedMoney() {
+    void expectTrueWhenPersonBEffectiveMoneyGreaterThanPersonAOwedMoney() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
@@ -67,7 +70,7 @@ class ShareExpenseTest {
     }
 
     @Test
-    void expectPersonBEffectiveMoneyEqualToPersonAOwedMoney() {
+    void expectTrueWhenPersonBEffectiveMoneyEqualToPersonAOwedMoney() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
@@ -80,7 +83,7 @@ class ShareExpenseTest {
     }
 
     @Test
-    void expectPersonBEffectiveMoneyLessThanPersonAOwedMoney() {
+    void expectTrueWhenPersonBEffectiveMoneyLessThanPersonAOwedMoney() {
         Person personA = mock(Person.class);
         Person personB = mock(Person.class);
         Person personC = mock(Person.class);
@@ -90,6 +93,19 @@ class ShareExpenseTest {
         ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
         share.share();
         assertTrue(personB.getEffectiveMoney() < personA.getOwedMoney());
+    }
+
+    @Test
+    void expectFalseWhenPersonBEffectiveMoneyISZero() {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Person personC = mock(Person.class);
+        when(personB.getEffectiveMoney()).thenReturn(0.0);
+        when(personA.getOwedMoney()).thenReturn(30.0);
+        Display display = new Display();
+        ShareExpense share = new ShareExpense(Arrays.asList(personA, personB, personC), display);
+        share.share();
+        assertFalse(personB.getEffectiveMoney() < personA.getOwedMoney() && personB.getEffectiveMoney() > 0.0);
     }
 
 }
