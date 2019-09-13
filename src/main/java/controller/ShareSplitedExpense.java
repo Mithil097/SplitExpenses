@@ -1,5 +1,6 @@
 package controller;
 
+import model.Money;
 import model.Person;
 import view.Display;
 
@@ -21,7 +22,11 @@ public class ShareSplitedExpense {
         for (Person owesPerson : owesPersons) {
             for (Person person:personsInvolved){
                 if (person.isOwed()) {
-                    display.displayOwedPersonGiveCompleteMoney(owesPerson,person);
+                    if (owesPerson.getEffectiveMoney()>=person.getOwedMoney()){
+                        display.displayOwesPersonGetCompleteMoney(person,owesPerson);
+                        owesPerson.subtractOwedMoney(new Money(person.getOwedMoney()));
+                        person.addMoneySpent(new Money(person.getOwedMoney()));
+                    }
                 }
             }
         }

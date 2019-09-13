@@ -3,6 +3,7 @@ import model.Person;
 import org.junit.jupiter.api.Test;
 import view.Display;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,6 +50,17 @@ public class ShareSplitedExpenseTest {
         verify(personB,times(2)).isOwed();
         verify(personC,times(2)).isOwed();
     }
-
+    @Test
+    void expectPersonBEffectiveMoneyGreaterThanPersonAOwedMoney() throws IOException {
+        Person personA = mock(Person.class);
+        Person personB = mock(Person.class);
+        Person personC = mock(Person.class);
+        when(personB.getEffectiveMoney()).thenReturn(20.0);
+        when(personA.getOwedMoney()).thenReturn(15.0);
+        Display display=new Display();
+        ShareSplitedExpense share = new ShareSplitedExpense(Arrays.asList(personA, personB, personC), display);
+        share.shareAmongThemselves();
+        assertEquals(true,personB.getEffectiveMoney()>personA.getOwedMoney());
+    }
 
 }

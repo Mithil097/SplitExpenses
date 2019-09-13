@@ -72,7 +72,7 @@ class PersonTest {
     void expectMoney10OwedPersonWhenPersonSubtractOwedMoney(){
         Person person = new Person("person");
         person.subtractOwedMoney(new Money(10.0));
-        assertEquals(10.0,person.owedMoney());
+        assertEquals(10.0,person.getOwedMoney());
     }
 }
 

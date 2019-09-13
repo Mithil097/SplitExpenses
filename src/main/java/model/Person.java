@@ -22,7 +22,7 @@ public class Person {
         return effectiveMoney.getMoney() < 0.0;
     }
 
-    public double owedMoney() {
+    public double getOwedMoney() {
         return -(effectiveMoney.getMoney());
     }
 
