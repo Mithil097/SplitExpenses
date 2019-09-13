@@ -12,6 +12,7 @@ import java.util.logging.*;
 
 public class GroupExpenseMain {
     private static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private static void setUpLogger() throws IOException {
         LogManager.getLogManager().reset();
         logger.setLevel(Level.ALL);
@@ -21,6 +22,7 @@ public class GroupExpenseMain {
         logger.addHandler(handler);
         logger.info("start the logger");
     }
+
     public static void main(String[] args) throws IOException {
         setUpLogger();
         Person personA = new Person("personA");

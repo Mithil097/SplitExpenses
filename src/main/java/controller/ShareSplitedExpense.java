@@ -13,17 +13,17 @@ public class ShareSplitedExpense {
 
 
     public ShareSplitedExpense(List<Person> personsInvolved, Display display) {
-        this.personsInvolved=personsInvolved;
-        this.display= display;
+        this.personsInvolved = personsInvolved;
+        this.display = display;
     }
 
-    public void shareAmongThemselves(){
-        List<Person> owesPersons=getOwesPersons();
+    public void shareAmongThemselves() {
+        List<Person> owesPersons = getOwesPersons();
         for (Person owesPerson : owesPersons) {
-            for (Person person:personsInvolved){
+            for (Person person : personsInvolved) {
                 if (person.isOwed()) {
-                    if (owesPerson.getEffectiveMoney()>=person.getOwedMoney()){
-                        display.displayOwesPersonGetCompleteMoney(person,owesPerson);
+                    if (owesPerson.getEffectiveMoney() >= person.getOwedMoney()) {
+                        display.displayOwesPersonGetCompleteMoney(person, owesPerson);
                         owesPerson.subtractOwedMoney(new Money(person.getOwedMoney()));
                         person.addMoneySpent(new Money(person.getOwedMoney()));
                     }
@@ -32,10 +32,10 @@ public class ShareSplitedExpense {
         }
     }
 
-    public List<Person> getOwesPersons(){
-        List<Person> owesPersons=new ArrayList<>();
-        for (Person person:personsInvolved){
-            if (!person.isOwed()){
+    public List<Person> getOwesPersons() {
+        List<Person> owesPersons = new ArrayList<>();
+        for (Person person : personsInvolved) {
+            if (!person.isOwed()) {
                 owesPersons.add(person);
             }
         }

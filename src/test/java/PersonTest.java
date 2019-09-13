@@ -57,22 +57,22 @@ class PersonTest {
     }
 
     @Test
-    void expect0WhenPersonCallsGetEffectiveMoney(){
+    void expect0WhenPersonCallsGetEffectiveMoney() {
         Person person = new Person("person1");
-        assertEquals(0.0,person.getEffectiveMoney());
+        assertEquals(0.0, person.getEffectiveMoney());
     }
 
     @Test
     void expectFalseWhenPersonCalledIsOwed() {
         Person person = new Person("person1");
-        assertEquals(false,person.isOwed());
+        assertEquals(false, person.isOwed());
     }
 
     @Test
-    void expectMoney10OwedPersonWhenPersonSubtractOwedMoney(){
+    void expectMoney10OwedPersonWhenPersonSubtractOwedMoney() {
         Person person = new Person("person");
         person.subtractOwedMoney(new Money(10.0));
-        assertEquals(10.0,person.getOwedMoney());
+        assertEquals(10.0, person.getOwedMoney());
     }
 }
 
