@@ -1,5 +1,6 @@
 package controller;
 
+import model.Money;
 import model.Person;
 
 import java.util.ArrayList;
@@ -10,6 +11,16 @@ public class ShareSplitedExpense {
 
     public ShareSplitedExpense(List<Person> personsInvolved) {
         this.personsInvolved=personsInvolved;
+    }
+
+    public void shareAmongThemselves(){
+        List<Person> owesPersons=getOwesPersons();
+        for (Person owesPerson : owesPersons) {
+            for (Person person:personsInvolved){
+                if (person.isOwed()) {
+                }
+            }
+        }
     }
 
     public List<Person> getOwesPersons(){
